@@ -459,7 +459,7 @@ impl Fairing for PrometheusMetrics {
             }
         }
 
-        let endpoint = req.route().unwrap().uri.as_str();
+        let endpoint = req.route().unwrap().uri.path().as_str();
         let method = req.method().as_str();
         let status = StatusCode::from(response.status().code);
         self.http_requests_total
